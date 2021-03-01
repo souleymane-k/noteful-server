@@ -5,6 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const foldersRouter = require('./folders/folders-router')
+const notesRouter = require('./notes/notes-router')
 const { response } = require('express')
 
 
@@ -18,13 +19,19 @@ app.use(morgan(morganOption))
 app.use(helmet())
 app.use(cors())
 app.use('/api/folders', foldersRouter)
+app.use('/api/notes', notesRouter)
+
+// app.get('/XSS', (req, res) => {
+//     res.cookie('secretToken', '1234567890');
+//     res.sendFile(__dirname + '/xss-example.html');
+//   });
 
 
 app.get('/', (req, res)=>{
     res.send('Hello, boilerplate!')
 })
 app.use(function errorHandler(error, req, res, next){
-    let response
+      let response
     if(NODE_ENV ==='production'){
         response = { error: { message: 'server error' } }
     }else{
@@ -35,3 +42,6 @@ app.use(function errorHandler(error, req, res, next){
 })
 
 module.exports = app
+
+
+

@@ -7,8 +7,10 @@ CREATE TABLE noteful_notes (
 );
 
 
+
+
 -- double check this
-ALTER TABLE noteful_notes
-  ADD COLUMN
-    folderid INTEGER REFERENCES noteful_folders(id)
-    ON DELETE SET NULL;
+-- ALTER TABLE noteful_notes
+--   ADD COLUMN
+--     folderid INTEGER REFERENCES noteful_folders(id)
+--     ON DELETE SET NULL;

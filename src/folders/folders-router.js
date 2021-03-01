@@ -1,6 +1,6 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
+//const xss = require('xss')
 const FoldersService = require('./folders-service')
 
 const foldersRouter = express.Router()
@@ -8,7 +8,8 @@ const jsonParser = express.json()
 
 const serializeFolder = folder => ({
   id: folder.id,
-  name: xss(folder.name),
+  // name: xss(folder.name),
+  name:folder.name,
 })
 
 foldersRouter
@@ -88,7 +89,7 @@ foldersRouter
     if (numberOfValues === 0)
       return res.status(400).json({
         error: {
-          message: `Request body must contain either 'name'`
+          message: `Request body must contain  'name'`
         }
       })
 

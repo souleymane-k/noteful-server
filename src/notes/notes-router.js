@@ -1,6 +1,6 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
+// const xss = require('xss')
 const NotesService = require('./notes-service')
 
 const notesRouter = express.Router()
@@ -8,7 +8,8 @@ const jsonParser = express.json()
 
 const serializeNote = note => ({
   id: note.id,
-  name: xss(note.text),
+  // name: xss(note.text),
+  name:note.name,
   modified: note.modified,
   folderid: note.folderid
 })
