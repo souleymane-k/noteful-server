@@ -12,5 +12,3 @@ const db = knex({
 app.listen(PORT, () => {
   console.log(`Server listening at http://localhost:${PORT}`)
 })
-
-// "postgrator-cli": "^3.3.0",
