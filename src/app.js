@@ -21,10 +21,9 @@ app.use(cors())
 app.use('/api/folders', foldersRouter)
 app.use('/api/notes', notesRouter)
 
-// app.get('/XSS', (req, res) => {
-//     res.cookie('secretToken', '1234567890');
-//     res.sendFile(__dirname + '/xss-example.html');
-//   });
+// app.use('/api/folders', foldersRouter)
+// app.use('/api/notes', notesRouter)
+
 
 
 app.get('/', (req, res)=>{
