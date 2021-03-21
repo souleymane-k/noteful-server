@@ -12,27 +12,27 @@ const { PORT, DATABASE_URL } = require('./config')
 //   ssl: true
 // }); 
 // client.connect();
-const db = knex({
-  pg  = require('pg'),
-config  = require('./db-config'),
-    dbOption    = {
-      host    : "54.87.225.174",
-      port    :5432 ,
-      user    :emrwbvujwlxffo ,
-      password  : "4b9b0a57f6fc57f846c77db82847b0310e354c98c4ca4bac57664c3ebf40d976",
-      database  :"d9ulrv9qnqc0hm" 
-    },
-  })
-  pool          = new pg.Pool(dbOption)
-  pg.defaults.ssl = true;
-
-
 // const db = knex({
-//      client: 'pg',
-//      connection: DATABASE_URL,
-//      ssl: true
+//   pg  = require('pg'),
+// config = require('./db-config'),
+//     dbOption    = {
+//       host    : "54.87.225.174",
+//       port    :5432 ,
+//       user    :emrwbvujwlxffo ,
+//       password  : "4b9b0a57f6fc57f846c77db82847b0310e354c98c4ca4bac57664c3ebf40d976",
+//       database  :"d9ulrv9qnqc0hm" 
+//     },
+//   })
+//   pool          = new pg.Pool(dbOption)
+//   pg.defaults.ssl = true;
+
+
+const db = knex({
+     client: 'pg',
+     connection: DATABASE_URL,
+     ssl: true
     
-//     })
+    })
     app.set('db', db)
 
 
