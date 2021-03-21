@@ -21,8 +21,6 @@ app.use(cors())
 app.use('/api/folders', foldersRouter)
 app.use('/api/notes', notesRouter)
 
-// app.use('/api/folders', foldersRouter)
-// app.use('/api/notes', notesRouter)
 
 
 
