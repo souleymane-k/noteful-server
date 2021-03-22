@@ -1,12 +1,10 @@
-const knex = require('knex')
-const app = require('./app')
-const { PORT, DATABASE_URL } = require('./config')
 require("dotenv").config();
-
-const knex=require("knex");
-const app =require("./app");
+const knex=require('knex');
+const app =require('./app');
 const { PORT, DATABASE_URL } = require('./config');
-const pg = require("pg");
+const pg = require('pg');
+
+
 pg.defaults.ssl = process.env.NODE_ENV ==="production"?
 {rejectUnauthorized:false}:false
 const db = knex({
@@ -17,7 +15,7 @@ const db = knex({
 app.set("db", db);
 
 app.listen(PORT,() =>{
-  console.log('server listening at http://localhost:${PORT');
+  console.log(`server listening at http://localhost:${PORT}`);
 })
 
 
