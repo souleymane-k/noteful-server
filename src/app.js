@@ -3,6 +3,7 @@ const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
+// const { v4: uuid } = require('uuid');
 const { NODE_ENV } = require('./config')
 const foldersRouter = require('./folders/folders-router')
 const notesRouter = require('./notes/notes-router')
@@ -29,7 +30,7 @@ app.get('/', (req, res)=>{
 })
 app.use(function errorHandler(error, req, res, next){
       let response
-    if(NODE_ENV ==='production'){
+    if(!NODE_ENV ==='production'){
         response = { error: { message: 'server error' } }
     }else{
         console.error(error)

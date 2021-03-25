@@ -1,7 +1,7 @@
 {
   "name": "noteful-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a boilerplate project used for starting new projects!",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
@@ -30,11 +30,23 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "pg": "^8.5.1",
-    "postgrator": "^4.1.1"
+    "postgrator": "^4.1.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7",
     "postgrator-cli": "^4.0.0",
     "supertest": "^6.1.3"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souleymane-k/noteful-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/souleymane-k/noteful-server/issues"
+  },
+  "homepage": "https://github.com/souleymane-k/noteful-server#readme"
 }

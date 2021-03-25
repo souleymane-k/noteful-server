@@ -23,7 +23,7 @@ foldersRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const { name,} = req.body
+    const {name} = req.body
     const newFolder = {name }
 
     for (const [key, value] of Object.entries(newFolder)) {
@@ -51,7 +51,7 @@ foldersRouter
   })
 
 foldersRouter
-  .route('/api/:folder_id')
+  .route('/:folder_id')
   .all((req, res, next) => {
     FoldersService.getById(
       req.app.get('db'),
@@ -105,3 +105,21 @@ foldersRouter
   })
 
 module.exports = foldersRouter
+
+//.route('/:note_id')
+// .all((req, res, next) => {
+//   NotesService.getById(
+//     req.app.get('db'),
+//     req.params.note_id
+//   )
+//     .then(note => {
+//       if (!note) {
+//         return res.status(404).json({
+//           error: { message: `Note doesn't exist` }
+//         })
+//       }
+//       res.note = note
+//       next()
+//     })
+//     .catch(next)
+// })
