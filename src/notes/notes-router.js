@@ -40,7 +40,7 @@ notesRouter
 
     newNote.modified = modified;
 
-    NotesService.insertComment(
+    NotesService.insertNote(
       req.app.get('db'),
       newNote
     )
