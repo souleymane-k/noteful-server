@@ -11,6 +11,7 @@ const serializeNote = note => ({
   // name: xss(note.text),
   name:note.name,
   modified: note.modified,
+  content: note.content,
   folderid: note.folderid
 })
 
@@ -86,7 +87,7 @@ notesRouter
   })
   .patch(jsonParser, (req, res, next) => {
     const { content, modified } = req.body
-    const noteToUpdate = { content, modified }
+    const noteToUpdate = {content, modified }
 
     const numberOfValues = Object.values(noteToUpdate).filter(Boolean).length
     if (numberOfValues === 0)
