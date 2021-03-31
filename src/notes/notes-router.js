@@ -11,7 +11,7 @@ const serializeNote = note => ({
   // name: xss(note.text),
   name:note.name,
   content: note.content,
-  folderid: note.folderid
+  folderId: note.folderid
 })
 // modified:none.modified
 
