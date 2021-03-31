@@ -10,10 +10,10 @@ const serializeNote = note => ({
   id: note.id,
   // name: xss(note.text),
   name:note.name,
-  modified: note.modified,
   content: note.content,
   folderid: note.folderid
 })
+// modified:none.modified
 
 //id, name, modified, folderid, content
 
@@ -30,9 +30,11 @@ notesRouter
 
   // start here
   .post(jsonParser, (req, res, next) => {
+    const { name,folderid, content } = req.body
+    const newNote = { name, folderid, content}
 
-    const { name, modified, folderid, content } = req.body
-    const newNote = { name, modified, folderid, content}
+    // const { name, modified, folderid, content } = req.body
+    // const newNote = { name, modified, folderid, content}
 
     for (const [key, value] of Object.entries(newNote))
       if (value == null)
@@ -40,7 +42,7 @@ notesRouter
           error: { message: `Missing '${key}' in request body` }
         })
 
-    newNote.modified = modified;
+    // newNote.modified = modified;
 
     NotesService.insertNote(
       req.app.get('db'),
@@ -87,14 +89,17 @@ notesRouter
       .catch(next)
   })
   .patch(jsonParser, (req, res, next) => {
-    const { content, modified } = req.body
-    const noteToUpdate = {content, modified }
+    const { content} = req.body
+    const noteToUpdate = {content}
+  //add modified to {content,modified}
+
 
     const numberOfValues = Object.values(noteToUpdate).filter(Boolean).length
     if (numberOfValues === 0)
       return res.status(400).json({
         error: {
-          message: `Request body must contain either 'content' or 'modified'`
+          // message: `Request body must contain either 'content' or 'modified'`
+          message: `Request body must contain 'content'`
         }
       })
 
